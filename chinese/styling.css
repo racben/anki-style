@@ -161,3 +161,27 @@ a {
 .targetLink:focus {
   outline: none;
 }
+
+.sentenceLink,
+.sentenceLink:visited,
+.sentenceLink:hover,
+.sentenceLink:active,
+.targetLink,
+.targetLink:visited,
+.targetLink:hover,
+.targetLink:active {
+  color: inherit;
+  text-decoration: none;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sentenceLink,
+.targetLink {
+  display: inline-block;
+}
+
+.sentenceLink:focus,
+.targetLink:focus {
+  outline: none;
+}

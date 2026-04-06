@@ -1,6 +1,6 @@
 <div id="luxBadgeMount"></div>
 
-<div class="sentence">{{Sentence}}</div>
+<div class="sentence" id="sentenceMount">{{Sentence}}</div>
 
 <div class="target" id="targetMount">{{Expression}}</div>
 
@@ -34,19 +34,34 @@
     }
   }
 
+  var sentenceMount = document.getElementById('sentenceMount');
+  if (sentenceMount) {
+    var sentenceText = (sentenceMount.textContent || "").trim();
+    if (sentenceText) {
+      var sentenceHref =
+        "https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=1&wdqchs=" +
+        encodeURIComponent(sentenceText);
+
+      sentenceMount.innerHTML =
+        '<a class="sentenceLink" href="' + sentenceHref + '">' +
+        sentenceMount.innerHTML +
+        '</a>';
+    }
+  }
+
   var targetMount = document.getElementById('targetMount');
-  if (!targetMount) return;
+  if (targetMount) {
+    var expr = (targetMount.textContent || "").trim();
+    if (expr) {
+      var isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent || "");
+      var targetHref = isMobile
+        ? "plecoapi://x-callback-url/s?q=" + encodeURIComponent(expr)
+        : "https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=0&wdqb=" + encodeURIComponent(expr);
 
-  var expr = (targetMount.textContent || "").trim();
-  if (!expr) return;
-
-  var isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent || "");
-  var href = isMobile
-    ? "plecoapi://x-callback-url/df?hw=" + encodeURIComponent(expr)
-    : "https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=0&wdqb=" + encodeURIComponent(expr);
-
-  targetMount.innerHTML =
-    '<a class="targetLink" href="' + href + '">' + expr + '</a>';
+      targetMount.innerHTML =
+        '<a class="targetLink" href="' + targetHref + '">' + expr + '</a>';
+    }
+  }
 })();
 </script>
 
