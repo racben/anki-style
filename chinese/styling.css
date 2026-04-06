@@ -40,9 +40,10 @@
 
 /* Sentence */
 .sentence {
-  font-size: clamp(20px, 3.8vw, 28px);
+  font-size: clamp(18px, 2.2vw, 28px);
   margin: 4px 0 18px;
   word-break: break-word;
+  text-align: center;
 }
 
 /* Highlighted pivot */
@@ -71,7 +72,7 @@
 /* Pinyin */
 .pinyin {
   text-align: center;
-  font-size: clamp(14px, 2.9vw, 18px);
+  font-size: clamp(16px, 2.9vw, 18px);
   letter-spacing: 0.06em;
   color: var(--pinyin);
   margin-top: 8px;
@@ -80,7 +81,7 @@
 /* Definition */
 .definition {
   text-align: center;
-  font-size: clamp(15px, 3.0vw, 19px);
+  font-size: clamp(17px, 3.0vw, 19px);
   color: var(--soft);
   margin-top: 12px;
 }
@@ -156,7 +157,10 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-.sentenceLink,
+.sentenceLink {
+  display: inline;
+}
+
 .targetLink {
   display: inline-block;
 }

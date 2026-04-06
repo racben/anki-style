@@ -1,10 +1,8 @@
-
 <div class="sentence" id="sentenceMount">{{Sentence}}</div>
 
 <div class="target" id="targetMount">{{Expression}}</div>
 
 <div class="trad"></div>
-
 
 <div class="pinyin">{{Reading}}</div>
 
@@ -24,11 +22,6 @@
 
 <script>
 (function () {
-  var tagsEl = document.getElementById('tags');
-  if (tagsEl && mount) {
-    var tags = (tagsEl.textContent || "").toLowerCase();
-  }
-
   var sentenceMount = document.getElementById('sentenceMount');
   if (sentenceMount) {
     var sentenceText = (sentenceMount.textContent || "").trim();
@@ -59,4 +52,3 @@
   }
 })();
 </script>
-

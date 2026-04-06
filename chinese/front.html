@@ -1,14 +1,4 @@
-
 <div class="sentence">{{Sentence}}</div>
 
 <!-- Tags are hidden but usable by JS -->
 <div id="tags" style="display:none">{{Tags}}</div>
-
-<script>
-(function () {
-  var tagsEl = document.getElementById('tags');
-  if (!tagsEl || !mount) return;
-
-  var tags = (tagsEl.textContent || "").toLowerCase();
-})();
-</script>
