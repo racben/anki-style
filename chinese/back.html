@@ -2,8 +2,7 @@
 
 <div class="sentence">{{Sentence}}</div>
 
-<div class="target">{{Expression}}</div>
-
+<div class="target" id="targetMount">{{Expression}}</div>
 
 <div class="trad"></div>
 
@@ -28,11 +27,26 @@
 (function () {
   var tagsEl = document.getElementById('tags');
   var mount = document.getElementById('luxBadgeMount');
-  if (!tagsEl || !mount) return;
-
-  var tags = (tagsEl.textContent || "").toLowerCase();
-  if (tags.includes("lux")) {
-    mount.innerHTML = '<div class="badge lux">LUX</div>';
+  if (tagsEl && mount) {
+    var tags = (tagsEl.textContent || "").toLowerCase();
+    if (tags.includes("lux")) {
+      mount.innerHTML = '<div class="badge lux">LUX</div>';
+    }
   }
+
+  var targetMount = document.getElementById('targetMount');
+  if (!targetMount) return;
+
+  var expr = (targetMount.textContent || "").trim();
+  if (!expr) return;
+
+  var isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent || "");
+  var href = isMobile
+    ? "plecoapi://x-callback-url/s?q=" + encodeURIComponent(expr)
+    : "https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=0&wdqb=" + encodeURIComponent(expr);
+
+  targetMount.innerHTML =
+    '<a class="targetLink" href="' + href + '">' + expr + '</a>';
 })();
 </script>
+

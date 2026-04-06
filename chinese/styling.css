@@ -143,3 +143,21 @@ a {
   color: var(--pinyin);
   text-decoration: none;
 }
+
+.targetLink,
+.targetLink:visited,
+.targetLink:hover,
+.targetLink:active {
+  color: inherit;
+  text-decoration: none;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.targetLink {
+  display: inline-block;
+}
+
+.targetLink:focus {
+  outline: none;
+}
