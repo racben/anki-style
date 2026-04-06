@@ -1,0 +1,109 @@
+/* Mobile-first sizing that still looks good on desktop */
+.card {
+  background: #0e0f11;
+  color: #eaeaea;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "PingFang SC", "Noto Sans SC", "Heiti SC", sans-serif;
+  line-height: 1.65;
+  padding: 18px 18px 22px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* LUX badge */
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+  user-select: none;
+}
+.badge.lux {
+  color: #141414;
+  background: linear-gradient(135deg, #ffe7a8, #ffc86a);
+  box-shadow: 0 8px 20px rgba(255, 200, 106, 0.15);
+}
+
+/* Sentence */
+.sentence {
+  font-size: clamp(20px, 3.8vw, 28px);
+  margin: 4px 0 18px;
+  word-break: break-word;
+}
+
+/* Highlighted pivot (your <b>Target</b>) */
+.sentence b {
+  color: #ffd479;
+  font-weight: 700;
+}
+
+/* Target word block */
+.target {
+  font-size: clamp(26px, 5vw, 36px);
+  font-weight: 750;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Traditional */
+.trad {
+  text-align: center;
+  font-size: clamp(16px, 3.2vw, 20px);
+  color: rgba(234,234,234,0.62);
+  margin-top: 6px;
+}
+
+/* Pinyin */
+.pinyin {
+  text-align: center;
+  font-size: clamp(14px, 2.9vw, 18px);
+  letter-spacing: 0.06em;
+  color: #8bd3ff;
+  margin-top: 8px;
+}
+
+/* Definition */
+.definition {
+  text-align: center;
+  font-size: clamp(15px, 3.0vw, 19px);
+  color: rgba(234,234,234,0.80);
+  margin-top: 12px;
+}
+
+/* Divider */
+hr {
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+  margin: 18px 0 16px;
+}
+
+/* Nuance label */
+.nuanceLabel {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(234,234,234,0.45);
+  margin-bottom: 8px;
+}
+
+/* Nuance explainer */
+.nuance {
+  font-size: clamp(15px, 3.2vw, 19px);
+  color: #e6d3a1;
+  line-height: 1.75;
+}
+
+/* Notes */
+.notes {
+  margin-top: 16px;
+  font-size: clamp(13px, 2.8vw, 16px);
+  color: rgba(234,234,234,0.60);
+  border-left: 3px solid rgba(255,255,255,0.18);
+  padding-left: 12px;
+}
+
+/* Optional: make links not scream */
+a { color: #8bd3ff; text-decoration: none; }

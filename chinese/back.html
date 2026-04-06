@@ -1,0 +1,38 @@
+<div id="luxBadgeMount"></div>
+
+<div class="sentence">{{Sentence}}</div>
+
+<div class="target">{{Expression}}</div>
+
+
+<div class="trad"></div>
+
+
+<div class="pinyin">{{Reading}}</div>
+
+<div class="definition">{{Definition}}</div>
+
+<hr>
+
+<div class="nuanceLabel">Why this word?</div>
+<div class="nuance">{{Notes}}</div>
+
+{{#Source}}
+<div class="notes">📝 {{Source}}</div>
+{{/Source}}
+
+<!-- Tags are hidden but usable by JS -->
+<div id="tags" style="display:none">{{Tags}}</div>
+
+<script>
+(function () {
+  var tagsEl = document.getElementById('tags');
+  var mount = document.getElementById('luxBadgeMount');
+  if (!tagsEl || !mount) return;
+
+  var tags = (tagsEl.textContent || "").toLowerCase();
+  if (tags.includes("lux")) {
+    mount.innerHTML = '<div class="badge lux">LUX</div>';
+  }
+})();
+</script>
