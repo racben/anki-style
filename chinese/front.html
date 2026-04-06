@@ -1,4 +1,3 @@
-<div id="luxBadgeMount"></div>
 
 <div class="sentence">{{Sentence}}</div>
 
@@ -8,12 +7,8 @@
 <script>
 (function () {
   var tagsEl = document.getElementById('tags');
-  var mount = document.getElementById('luxBadgeMount');
   if (!tagsEl || !mount) return;
 
   var tags = (tagsEl.textContent || "").toLowerCase();
-  if (tags.includes("lux")) {
-    mount.innerHTML = '<div class="badge lux">LUX</div>';
-  }
 })();
 </script>

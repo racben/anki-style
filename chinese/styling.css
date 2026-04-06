@@ -10,9 +10,6 @@
   --accent: #b7791f;
   --pinyin: #0b6fa4;
   --nuance: #8a6420;
-  --lux-text: #141414;
-  --lux-bg: linear-gradient(135deg, #ffe7a8, #ffc86a);
-  --lux-shadow: 0 8px 20px rgba(255, 200, 106, 0.15);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,23 +36,6 @@
   line-height: 1.65;
   padding: 18px 18px 22px;
   -webkit-font-smoothing: antialiased;
-}
-
-/* LUX badge */
-.badge {
-  display: inline-block;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  font-weight: 700;
-  padding: 6px 10px;
-  border-radius: 999px;
-  margin-bottom: 14px;
-  user-select: none;
-}
-.badge.lux {
-  color: var(--lux-text);
-  background: var(--lux-bg);
-  box-shadow: var(--lux-shadow);
 }
 
 /* Sentence */
