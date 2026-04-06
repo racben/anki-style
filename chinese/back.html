@@ -42,7 +42,7 @@
 
   var isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent || "");
   var href = isMobile
-    ? "plecoapi://x-callback-url/s?q=" + encodeURIComponent(expr)
+    ? "plecoapi://x-callback-url/df?hw=" + encodeURIComponent(expr)
     : "https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=0&wdqb=" + encodeURIComponent(expr);
 
   targetMount.innerHTML =
