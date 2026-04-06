@@ -1,7 +1,40 @@
+:root {
+  --bg: #ffffff;
+  --text: #1c1c1c;
+  --muted: rgba(28,28,28,0.62);
+  --soft: rgba(28,28,28,0.78);
+  --line: rgba(0,0,0,0.12);
+  --label: rgba(28,28,28,0.45);
+  --note: rgba(28,28,28,0.60);
+  --note-border: rgba(0,0,0,0.18);
+  --accent: #b7791f;
+  --pinyin: #0b6fa4;
+  --nuance: #8a6420;
+  --lux-text: #141414;
+  --lux-bg: linear-gradient(135deg, #ffe7a8, #ffc86a);
+  --lux-shadow: 0 8px 20px rgba(255, 200, 106, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e0f11;
+    --text: #eaeaea;
+    --muted: rgba(234,234,234,0.62);
+    --soft: rgba(234,234,234,0.80);
+    --line: rgba(255,255,255,0.12);
+    --label: rgba(234,234,234,0.45);
+    --note: rgba(234,234,234,0.60);
+    --note-border: rgba(255,255,255,0.18);
+    --accent: #ffd479;
+    --pinyin: #8bd3ff;
+    --nuance: #e6d3a1;
+  }
+}
+
 /* Mobile-first sizing that still looks good on desktop */
 .card {
-  color: inherit;
-  /* remove background */
+  background: var(--bg);
+  color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "PingFang SC", "Noto Sans SC", "Heiti SC", sans-serif;
   line-height: 1.65;
   padding: 18px 18px 22px;
@@ -20,9 +53,9 @@
   user-select: none;
 }
 .badge.lux {
-  color: #141414;
-  background: linear-gradient(135deg, #ffe7a8, #ffc86a);
-  box-shadow: 0 8px 20px rgba(255, 200, 106, 0.15);
+  color: var(--lux-text);
+  background: var(--lux-bg);
+  box-shadow: var(--lux-shadow);
 }
 
 /* Sentence */
@@ -32,9 +65,9 @@
   word-break: break-word;
 }
 
-/* Highlighted pivot (your <b>Target</b>) */
+/* Highlighted pivot */
 .sentence b {
-  color: #ffd479;
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -42,7 +75,7 @@
 .target {
   font-size: clamp(26px, 5vw, 36px);
   font-weight: 750;
-  color: #ffffff;
+  color: var(--text);
   text-align: center;
   margin-top: 10px;
 }
@@ -51,7 +84,7 @@
 .trad {
   text-align: center;
   font-size: clamp(16px, 3.2vw, 20px);
-  color: rgba(234,234,234,0.62);
+  color: var(--muted);
   margin-top: 6px;
 }
 
@@ -60,7 +93,7 @@
   text-align: center;
   font-size: clamp(14px, 2.9vw, 18px);
   letter-spacing: 0.06em;
-  color: #8bd3ff;
+  color: var(--pinyin);
   margin-top: 8px;
 }
 
@@ -68,7 +101,7 @@
 .definition {
   text-align: center;
   font-size: clamp(15px, 3.0vw, 19px);
-  color: rgba(234,234,234,0.80);
+  color: var(--soft);
   margin-top: 12px;
 }
 
@@ -76,7 +109,7 @@
 hr {
   border: none;
   height: 1px;
-  background: rgba(255,255,255,0.12);
+  background: var(--line);
   margin: 18px 0 16px;
 }
 
@@ -85,14 +118,14 @@ hr {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(234,234,234,0.45);
+  color: var(--label);
   margin-bottom: 8px;
 }
 
 /* Nuance explainer */
 .nuance {
   font-size: clamp(15px, 3.2vw, 19px);
-  color: #e6d3a1;
+  color: var(--nuance);
   line-height: 1.75;
 }
 
@@ -100,10 +133,13 @@ hr {
 .notes {
   margin-top: 16px;
   font-size: clamp(13px, 2.8vw, 16px);
-  color: rgba(234,234,234,0.60);
-  border-left: 3px solid rgba(255,255,255,0.18);
+  color: var(--note);
+  border-left: 3px solid var(--note-border);
   padding-left: 12px;
 }
 
-/* Optional: make links not scream */
-a { color: #8bd3ff; text-decoration: none; }
+/* Links */
+a {
+  color: var(--pinyin);
+  text-decoration: none;
+}
