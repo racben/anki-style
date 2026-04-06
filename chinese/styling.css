@@ -40,10 +40,16 @@
 
 /* Sentence */
 .sentence {
-  font-size: clamp(20px, 3.2vw, 28px);
+  font-size: clamp(20px, 3.8vw, 28px);
   margin: 4px 0 18px;
   word-break: break-word;
   text-align: center;
+}
+
+@media (min-width: 700px) {
+  .sentence {
+    font-size: 22px;
+  }
 }
 
 /* Highlighted pivot */
