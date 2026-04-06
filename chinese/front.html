@@ -1,4 +1,20 @@
-<div class="sentence">{{Sentence}}</div>
+<div class="sentence" id="sentenceMount">{{Sentence}}</div>
 
-<!-- Tags are hidden but usable by JS -->
-<div id="tags" style="display:none">{{Tags}}</div>
+<div id="expression" style="display:none">{{Expression}}</div>
+
+<script>
+(function () {
+  var sentenceMount = document.getElementById('sentenceMount');
+  var exprEl = document.getElementById('expression');
+  if (!sentenceMount || !exprEl) return;
+
+  var expr = (exprEl.textContent || "").trim();
+  if (!expr) return;
+
+  var html = sentenceMount.innerHTML;
+  var escaped = expr.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  var re = new RegExp(escaped, 'g');
+
+  sentenceMount.innerHTML = html.replace(re, '<b>$&</b>');
+})();
+</script>

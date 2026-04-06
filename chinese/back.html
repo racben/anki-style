@@ -1,6 +1,7 @@
 <div class="sentence" id="sentenceMount">{{Sentence}}</div>
 
 <div class="target" id="targetMount">{{Expression}}</div>
+<div id="expression" style="display:none">{{Expression}}</div>
 
 <div class="trad"></div>
 
@@ -17,12 +18,21 @@
 <div class="notes">📝 {{Source}}</div>
 {{/Source}}
 
-<!-- Tags are hidden but usable by JS -->
-<div id="tags" style="display:none">{{Tags}}</div>
-
 <script>
 (function () {
   var sentenceMount = document.getElementById('sentenceMount');
+  var exprEl = document.getElementById('expression');
+
+  if (sentenceMount && exprEl) {
+    var expr = (exprEl.textContent || "").trim();
+    if (expr) {
+      var html = sentenceMount.innerHTML;
+      var escaped = expr.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      var re = new RegExp(escaped, 'g');
+      sentenceMount.innerHTML = html.replace(re, '<b>$&</b>');
+    }
+  }
+
   if (sentenceMount) {
     var sentenceText = (sentenceMount.textContent || "").trim();
     if (sentenceText) {
@@ -39,15 +49,15 @@
 
   var targetMount = document.getElementById('targetMount');
   if (targetMount) {
-    var expr = (targetMount.textContent || "").trim();
-    if (expr) {
+    var expr2 = (targetMount.textContent || "").trim();
+    if (expr2) {
       var isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent || "");
       var targetHref = isMobile
-        ? "plecoapi://x-callback-url/s?q=" + encodeURIComponent(expr)
-        : "https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=0&wdqb=" + encodeURIComponent(expr);
+        ? "plecoapi://x-callback-url/s?q=" + encodeURIComponent(expr2)
+        : "https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=0&wdqb=" + encodeURIComponent(expr2);
 
       targetMount.innerHTML =
-        '<a class="targetLink" href="' + targetHref + '">' + expr + '</a>';
+        '<a class="targetLink" href="' + targetHref + '">' + expr2 + '</a>';
     }
   }
 })();
