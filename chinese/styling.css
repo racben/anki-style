@@ -1,7 +1,7 @@
 /* Mobile-first sizing that still looks good on desktop */
 .card {
-  background: #0e0f11;
-  color: #eaeaea;
+  color: inherit;
+  /* remove background */
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "PingFang SC", "Noto Sans SC", "Heiti SC", sans-serif;
   line-height: 1.65;
   padding: 18px 18px 22px;
