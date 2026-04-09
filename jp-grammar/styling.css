@@ -1,0 +1,106 @@
+:root {
+  --bg: #ffffff;
+  --text: #1c1c1c;
+  --muted: rgba(28,28,28,0.62);
+  --soft: rgba(28,28,28,0.80);
+  --line: rgba(0,0,0,0.12);
+  --label: rgba(28,28,28,0.45);
+  --note: rgba(28,28,28,0.60);
+  --note-border: rgba(0,0,0,0.18);
+  --accent: #b7791f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e0f11;
+    --text: #eaeaea;
+    --muted: rgba(234,234,234,0.62);
+    --soft: rgba(234,234,234,0.80);
+    --line: rgba(255,255,255,0.12);
+    --label: rgba(234,234,234,0.45);
+    --note: rgba(234,234,234,0.60);
+    --note-border: rgba(255,255,255,0.18);
+    --accent: #ffd479;
+  }
+}
+
+.card {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  line-height: 1.65;
+  padding: 18px 18px 22px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Main sentence */
+.sentence {
+  font-size: clamp(20px, 3.8vw, 28px);
+  margin: 4px 0 18px;
+  word-break: break-word;
+  text-align: center;
+  line-height: 1.8;
+}
+
+@media (min-width: 700px) {
+  .sentence {
+    font-size: 22px;
+  }
+}
+
+/* Highlight target inside sentence */
+.sentence b {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Target/pattern label */
+.target {
+  font-size: clamp(24px, 4.8vw, 34px);
+  font-weight: 750;
+  color: var(--text);
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* Fast answer */
+.gloss {
+  text-align: center;
+  font-size: clamp(17px, 3vw, 19px);
+  color: var(--soft);
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+/* Divider */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--line);
+  margin: 18px 0 16px;
+}
+
+/* Main explanation */
+.explanation {
+  font-size: clamp(15px, 3vw, 18px);
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* Optional extra notes */
+.notes {
+  margin-top: 16px;
+  font-size: clamp(13px, 2.8vw, 15px);
+  color: var(--note);
+  border-left: 3px solid var(--note-border);
+  padding-left: 12px;
+  line-height: 1.7;
+}
+
+/* Tiny source line */
+.source {
+  margin-top: 16px;
+  text-align: center;
+  font-size: clamp(12px, 2.5vw, 14px);
+  color: var(--label);
+}

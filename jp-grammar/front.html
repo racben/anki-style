@@ -1,0 +1,19 @@
+<div class="sentence" id="sentenceMount">{{Sentence}}</div>
+<div id="target" style="display:none">{{Target}}</div>
+
+<script>
+(function () {
+  var sentenceMount = document.getElementById('sentenceMount');
+  var targetEl = document.getElementById('target');
+  if (!sentenceMount || !targetEl) return;
+
+  var target = (targetEl.textContent || "").trim();
+  if (!target) return;
+
+  var html = sentenceMount.innerHTML;
+  var escaped = target.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  var re = new RegExp(escaped, 'g');
+
+  sentenceMount.innerHTML = html.replace(re, '<b>$&</b>');
+})();
+</script>
