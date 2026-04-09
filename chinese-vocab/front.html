@@ -1,0 +1,21 @@
+<div class="target" id="targetMount">{{Expression}}</div>
+
+<div id="expression" style="display:none">{{Expression}}</div>
+
+<script>
+(function () {
+  var targetMount = document.getElementById('targetMount');
+  if (!targetMount) return;
+
+  var expr = (targetMount.textContent || "").trim();
+  if (!expr) return;
+
+  var isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent || "");
+  var targetHref = isMobile
+    ? "plecoapi://x-callback-url/s?q=" + encodeURIComponent(expr)
+    : "https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=0&wdqb=" + encodeURIComponent(expr);
+
+  targetMount.innerHTML =
+    '<a class="targetLink" href="' + targetHref + '">' + expr + '</a>';
+})();
+</script>

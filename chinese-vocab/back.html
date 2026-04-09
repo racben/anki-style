@@ -1,0 +1,41 @@
+<div class="target" id="targetMount">{{Expression}}</div>
+
+{{#Image}}
+<div class="imageWrap">{{Image}}</div>
+{{/Image}}
+
+{{#Reading}}
+<div class="pinyin">{{Reading}}</div>
+{{/Reading}}
+
+{{#Definition}}
+<div class="definition">{{Definition}}</div>
+{{/Definition}}
+
+{{#Usage}}
+<hr>
+<div class="usageLabel">Usage</div>
+<div class="usage">{{Usage}}</div>
+{{/Usage}}
+
+{{#Source}}
+<div class="notes">📝 {{Source}}</div>
+{{/Source}}
+
+<script>
+(function () {
+  var targetMount = document.getElementById('targetMount');
+  if (!targetMount) return;
+
+  var expr = (targetMount.textContent || "").trim();
+  if (!expr) return;
+
+  var isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent || "");
+  var targetHref = isMobile
+    ? "plecoapi://x-callback-url/s?q=" + encodeURIComponent(expr)
+    : "https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=0&wdqb=" + encodeURIComponent(expr);
+
+  targetMount.innerHTML =
+    '<a class="targetLink" href="' + targetHref + '">' + expr + '</a>';
+})();
+</script>
