@@ -1,0 +1,147 @@
+:root {
+  --bg: #ffffff;
+  --text: #1c1c1c;
+  --muted: rgba(28,28,28,0.62);
+  --soft: rgba(28,28,28,0.78);
+  --line: rgba(0,0,0,0.12);
+  --label: rgba(28,28,28,0.45);
+  --note: rgba(28,28,28,0.60);
+  --note-border: rgba(0,0,0,0.18);
+  --accent: #b7791f;
+  --pinyin: #0b6fa4;
+  --nuance: #8a6420;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e0f11;
+    --text: #eaeaea;
+    --muted: rgba(234,234,234,0.62);
+    --soft: rgba(234,234,234,0.80);
+    --line: rgba(255,255,255,0.12);
+    --label: rgba(234,234,234,0.45);
+    --note: rgba(234,234,234,0.60);
+    --note-border: rgba(255,255,255,0.18);
+    --accent: #ffd479;
+    --pinyin: #8bd3ff;
+    --nuance: #e6d3a1;
+  }
+}
+
+/* Mobile-first sizing that still looks good on desktop */
+.card {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "PingFang SC", "Noto Sans SC", "Heiti SC", sans-serif;
+  line-height: 1.65;
+  padding: 18px 18px 22px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Update the .target class to be less bold and smaller */
+.target {
+  font-size: clamp(28px, 5vw, 36px); /* Reduced from 32-44px */
+  font-weight: 450;                 /* Reduced from 750 */
+  color: var(--text);
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 8px;               /* Tighter margin for the reading below it */
+}
+
+/* Add styling for the Reading field */
+.reading {
+  text-align: center;
+  font-size: clamp(16px, 3vw, 20px);
+  color: var(--pinyin);
+  margin-bottom: 20px;
+  font-family: "SF Pro", sans-serif;
+}
+
+/* Ensure the rest of your root and media query variables remain the same */
+/* Sentence */
+.sentence {
+  font-size: clamp(20px, 3.8vw, 28px);
+  margin: 18px 0;
+  word-break: break-word;
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  .sentence {
+    font-size: 22px;
+  }
+}
+
+/* Highlighted pivot in sentence */
+.sentence b {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Unified Explanation */
+.explanation {
+  text-align: center;
+  font-size: clamp(17px, 3.0vw, 19px);
+  color: var(--soft);
+  margin-top: 16px;
+}
+
+/* Divider */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--line);
+  margin: 24px 0;
+}
+
+/* Notes (formerly Source style) */
+.notes {
+  margin-top: 24px;
+  font-size: clamp(13px, 2.8vw, 16px);
+  color: var(--note);
+  border-left: 3px solid var(--note-border);
+  padding-left: 12px;
+  text-align: left; /* Kept left-aligned to separate it from centered main content */
+}
+
+/* Links */
+a {
+  color: inherit; /* Prevents default blue link coloring from messing with formatting */
+  text-decoration: none;
+}
+
+.targetLink,
+.targetLink:visited,
+.targetLink:hover,
+.targetLink:active {
+  color: inherit;
+  text-decoration: none;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.targetLink {
+  display: inline-block;
+}
+
+.targetLink:focus {
+  outline: none;
+}
+
+.sentenceLink,
+.sentenceLink:visited,
+.sentenceLink:hover,
+.sentenceLink:active {
+  color: inherit;
+  text-decoration: none;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sentenceLink {
+  display: inline;
+}
+
+.sentenceLink:focus {
+  outline: none;
+}
