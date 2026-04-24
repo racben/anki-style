@@ -1,12 +1,28 @@
-<div style='font-family: Arial; font-size: 20px;'>{{Front}}</div>
+<div class="prompt promptBack" id="sentenceMount">
+  {{Front}}
+</div>
 
+<hr id="answer">
 
-<hr id=answer>
+<div class="answer">
+  {{Back}}
+</div>
 
-<div align='left'><p>
-{{Back}}
-</p></div>
+<script>
+(function () {
+  var sentenceMount = document.getElementById('sentenceMount');
+  if (!sentenceMount) return;
 
-<br/><br/>
+  var sentenceText = (sentenceMount.textContent || "").trim();
+  if (!sentenceText) return;
 
-<div style='font-size: 12px;'><a href="plecoapi://x-callback-url/s?q={{text:Front}}">Pleco</a></div>
+  var sentenceHref =
+    "https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=1&wdqchs=" +
+    encodeURIComponent(sentenceText);
+
+  sentenceMount.innerHTML =
+    '<a class="sentenceLink" href="' + sentenceHref + '">' +
+    sentenceMount.innerHTML +
+    '</a>';
+})();
+</script>
