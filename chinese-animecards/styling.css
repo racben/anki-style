@@ -37,15 +37,30 @@
   padding: 18px 18px 22px;
   -webkit-font-smoothing: antialiased;
 }
-
-/* Update the .target class to be less bold and smaller */
-.target {
-  font-size: clamp(28px, 5vw, 36px); /* Reduced from 32-44px */
-  font-weight: 450;                 /* Reduced from 750 */
-  color: var(--text);
+.targetWrap {
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 8px;               /* Tighter margin for the reading below it */
+  margin-bottom: 12px;
+}
+
+.targetLine {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.2em;
+  flex-wrap: wrap;
+}
+
+.target {
+  font-size: clamp(28px, 5vw, 36px);
+  font-weight: 450;
+  color: var(--text);
+  margin: 0;
+}
+
+.hintInline {
+  font-size: clamp(14px, 2.6vw, 17px);
+  color: var(--muted);
 }
 
 /* Add styling for the Reading field */
