@@ -1,0 +1,130 @@
+/* --- Global Theme & Variables --- */
+.card {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Heiti SC", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color, #fbf7f8);
+  color: var(--text-color, #4a3e41);
+}
+
+/* Light Mode Colors (Soft Blush & Lavender) */
+:root {
+  --bg-color: #fdf8f9;
+  --text-color: #4a3b3e;
+  --accent-pink: #f4b2c1;
+  --accent-lavender: #e3d7ff;
+  --card-bg: #ffffff;
+  --title-color: #b86b7b;
+  --text-muted: #8a7679;
+  --border-color: #f5e6e8;
+  --notes-bg: #f9f5ff;
+}
+
+/* Native Dark Mode Overrides (Deep Plum & Dusty Rose) */
+.nightMode, :root[data-theme="dark"] {
+  --bg-color: #1a1516;
+  --text-color: #e5dadc;
+  --accent-pink: #cc7a8c;
+  --accent-lavender: #7c62b3;
+  --card-bg: #241c1e;
+  --title-color: #eab4c0;
+  --text-muted: #af999c;
+  --border-color: #36292b;
+  --notes-bg: #211b2b;
+}
+
+/* --- Layout Container --- */
+.card-container {
+  max-width: 480px; /* Perfect wrapper for desktop, standard for mobile */
+  margin: 0 auto;
+  padding: 20px 16px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* --- Front Styles --- */
+.sentence-display {
+  font-size: 1.45rem; /* Large enough for target-heavy reading on iPhone SE */
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--text-color);
+  text-align: justify;
+}
+
+/* Faded context sentence on the back side */
+.context-faded {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+.divider {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-pink) 0%, var(--accent-lavender) 100%);
+  margin: 18px 0;
+  border-radius: 2px;
+}
+
+/* --- Back Styles --- */
+.expression-target {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--title-color);
+  margin-bottom: 4px;
+}
+
+.reading-box {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  background-color: var(--accent-lavender);
+  color: #3b2a5c;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* Adjust reading text color for readability in dark mode */
+.nightMode .reading-box {
+  color: #f1edfa;
+}
+
+.section-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  margin-top: 16px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 2px;
+}
+
+.title-notes {
+  color: var(--accent-lavender);
+}
+.nightMode .title-notes {
+  color: #a38cd4;
+}
+
+.explanation-content {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  padding: 4px 2px;
+}
+
+.notes-content {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--notes-bg);
+  padding: 10px 12px;
+  border-radius: 8px;
+  border-left: 3px solid var(--accent-lavender);
+  margin-top: 6px;
+}
