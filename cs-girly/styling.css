@@ -1,0 +1,164 @@
+:root {
+  --bg: #fffbfb;
+  --card-bg: #ffffff;
+  --text: #2d2627;
+  --muted: rgba(45, 38, 39, 0.6);
+  --soft: rgba(45, 38, 39, 0.8);
+  --line: rgba(224, 182, 188, 0.3);
+  --label: #c2828b;
+  --note: rgba(45, 38, 39, 0.65);
+  --note-border: #f4cfd4;
+  --accent: #d1526d; /* Soft Strawberry Pink */
+  --pinyin: #7b5da6; /* Soft Lavender */
+  --nuance: #9c5c43;
+  --shadow: rgba(209, 82, 109, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #140f17; /* Deep Plum Black */
+    --card-bg: #1d1621;
+    --text: #f5eff1;
+    --muted: rgba(245, 239, 241, 0.6);
+    --soft: rgba(245, 239, 241, 0.85);
+    --line: rgba(234, 163, 196, 0.2);
+    --label: #e396bc;
+    --note: rgba(245, 239, 241, 0.7);
+    --note-border: #4d2d41;
+    --accent: #ff94b4; /* Magical Girl Neon Rose */
+    --pinyin: #c9aff2; /* Pastel Lilac */
+    --nuance: #e6b89c;
+    --shadow: rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Base Card & Container setup */
+.card {
+  background-color: var(--bg);
+  padding: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "PingFang SC", "Noto Sans SC", "Heiti SC", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card-container {
+  background: var(--card-bg);
+  border-radius: 18px;
+  box-shadow: 0 4px 20px var(--shadow);
+  border: 1px solid var(--line);
+  padding: 24px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Sentence */
+.sentence {
+  font-size: clamp(22px, 4vw, 30px);
+  margin: 8px 0 12px;
+  word-break: break-word;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Highlighted Target Word within sentence */
+.sentence b {
+  color: var(--accent);
+  font-weight: 700;
+  border-bottom: 2px dashed var(--line);
+  padding-bottom: 2px;
+}
+
+/* Target word block on back */
+.target {
+  font-size: clamp(28px, 5.5vw, 38px);
+  font-weight: 800;
+  color: var(--text);
+  text-align: center;
+  margin-top: 14px;
+  letter-spacing: 0.02em;
+}
+
+/* Traditional */
+.trad {
+  text-align: center;
+  font-size: clamp(16px, 3.2vw, 20px);
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Pinyin */
+.pinyin {
+  text-align: center;
+  font-size: clamp(16px, 3vw, 19px);
+  letter-spacing: 0.08em;
+  color: var(--pinyin);
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+/* Definition */
+.definition {
+  text-align: center;
+  font-size: clamp(16px, 3vw, 18px);
+  color: var(--soft);
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+/* Decorative Elegant Divider */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--line) 20%, var(--line) 80%, transparent);
+  margin: 22px 0 18px;
+}
+
+/* Nuance Label */
+.nuanceLabel {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--label);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+/* Nuance Explainer */
+.nuance {
+  font-size: clamp(14px, 3vw, 17px);
+  color: var(--nuance);
+  line-height: 1.7;
+}
+
+/* Source & Meta Notes */
+.notes {
+  margin-top: 20px;
+  font-size: clamp(12px, 2.5vw, 14px);
+  color: var(--note);
+  border-left: 2px solid var(--note-border);
+  padding-left: 12px;
+  font-style: italic;
+  text-align: left;
+}
+
+/* Links and Interactive Elements */
+a {
+  color: var(--pinyin);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover, a:active {
+  opacity: 0.8;
+}
+
+.sentenceLink, .sentenceLink:visited, .sentenceLink:hover, .sentenceLink:active,
+.targetLink, .targetLink:visited, .targetLink:hover, .targetLink:active {
+  color: inherit;
+  text-decoration: none;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sentenceLink { display: inline; }
+.targetLink { display: inline-block; }
+.sentenceLink:focus, .targetLink:focus { outline: none; }
