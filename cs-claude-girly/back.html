@@ -1,0 +1,19 @@
+<div class="wrap back-wrap">
+  <div class="sentence dimmed">{{Sentence}}</div>
+
+  <div class="stroke-divider"></div>
+
+  <div class="answer-block">
+    <div class="expr-row">
+      <span class="expr">{{Expression}}</span>{{#Reading}}<span class="rdg">{{Reading}}</span>{{/Reading}}
+    </div>
+    <div class="defn">{{Definition}}</div>
+  </div>
+
+  {{#Notes}}
+  <div class="notes-tray">
+    <span class="notes-label">补充</span>
+    {{Notes}}
+  </div>
+  {{/Notes}}
+</div>

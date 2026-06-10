@@ -1,0 +1,227 @@
+/* ─────────────────────────────────────────────────────────────
+   FONTS  (graceful offline fallback)
+──────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;700&family=Lora:ital,wght@0,400;1,400;1,500&display=swap');
+
+/* ─────────────────────────────────────────────────────────────
+   TOKENS — LIGHT
+──────────────────────────────────────────────────────────────── */
+:root {
+  --bg:            #FDF3F5;
+  --surface:       #FAE9ED;
+  --border:        #E8C5CE;
+  --accent:        #B85470;
+  --stroke-l:      rgba(184, 84, 112, 0.0);
+  --stroke-m:      rgba(184, 84, 112, 0.55);
+  --stroke-r:      rgba(184, 84, 112, 0.0);
+  --text:          #261320;
+  --text-sub:      #7A4558;
+  --text-muted:    #B8909A;
+  --note-bg:       #F9EFF2;
+  --note-border:   #DDB8C4;
+  --note-label:    #C07088;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TOKENS — DARK
+   Surface is now clearly distinct from Anki's black background
+──────────────────────────────────────────────────────────────── */
+.night_mode {
+  --bg:            #1A0E22;
+  --surface:       #32183E;   /* ↑ much more visible against black */
+  --border:        #5C3468;   /* ↑ more prominent border */
+  --accent:        #E8919F;
+  --stroke-l:      rgba(232, 145, 159, 0.0);
+  --stroke-m:      rgba(232, 145, 159, 0.55);
+  --stroke-r:      rgba(232, 145, 159, 0.0);
+  --text:          #F5E5EA;
+  --text-sub:      #C8A0B0;
+  --text-muted:    #8A6070;
+  --note-bg:       #28103A;
+  --note-border:   #4A2458;
+  --note-label:    #D880A0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:            #1A0E22;
+    --surface:       #32183E;
+    --border:        #5C3468;
+    --accent:        #E8919F;
+    --stroke-l:      rgba(232, 145, 159, 0.0);
+    --stroke-m:      rgba(232, 145, 159, 0.55);
+    --stroke-r:      rgba(232, 145, 159, 0.0);
+    --text:          #F5E5EA;
+    --text-sub:      #C8A0B0;
+    --text-muted:    #8A6070;
+    --note-bg:       #28103A;
+    --note-border:   #4A2458;
+    --note-label:    #D880A0;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FULL-SCREEN BACKGROUND
+   html + body coverage ensures no black gaps around the card
+──────────────────────────────────────────────────────────────── */
+html, body {
+  height: 100%;
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CARD ROOT
+──────────────────────────────────────────────────────────────── */
+.card {
+  font-family: 'Noto Serif SC', 'PingFang SC', 'Source Han Serif SC',
+               'STSong', 'Microsoft YaHei', Georgia, serif;
+  font-size: 18px;           /* explicit base so rem scales correctly */
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  min-height: -webkit-fill-available;   /* iOS Safari fix */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 18px;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CARD WRAPPER
+──────────────────────────────────────────────────────────────── */
+.wrap {
+  width: 100%;
+  max-width: 600px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px 32px 36px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.front-wrap { text-align: center; }
+
+/* ─────────────────────────────────────────────────────────────
+   SENTENCE
+──────────────────────────────────────────────────────────────── */
+.sentence {
+  font-size: 1.40rem;        /* ↑ was 1.30 */
+  line-height: 2.0;
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+
+.sentence b, .sentence strong {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Echo on back */
+.sentence.dimmed {
+  font-size: 1.05rem;        /* ↑ was 1.00 */
+  line-height: 1.85;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.sentence.dimmed b, .sentence.dimmed strong {
+  color: var(--text-sub);
+  font-weight: 400;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   STROKE DIVIDER
+──────────────────────────────────────────────────────────────── */
+.stroke-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--stroke-l) 0%,
+    var(--stroke-m) 40%,
+    var(--stroke-m) 60%,
+    var(--stroke-r) 100%
+  );
+  margin: 0 0 28px 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   EXPRESSION ROW
+──────────────────────────────────────────────────────────────── */
+.expr-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.expr {
+  font-size: 2.20rem;        /* ↑ was 1.90 */
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+}
+
+.rdg {
+  font-family: 'Lora', 'Georgia', serif;
+  font-style: italic;
+  font-size: 1.00rem;        /* ↑ was 0.92 */
+  color: var(--text-sub);
+  letter-spacing: 0.03em;
+  padding-bottom: 2px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   DEFINITION
+──────────────────────────────────────────────────────────────── */
+.defn {
+  font-size: 1.15rem;        /* ↑ was 1.06 */
+  line-height: 1.85;
+  color: var(--text);
+  letter-spacing: 0.025em;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   NOTES TRAY
+──────────────────────────────────────────────────────────────── */
+.notes-tray {
+  position: relative;
+  margin-top: 24px;
+  padding: 18px 18px 16px;
+  background: var(--note-bg);
+  border: 1px solid var(--note-border);
+  border-radius: 12px;
+  font-size: 0.95rem;        /* ↑ was 0.90 */
+  line-height: 1.78;
+  color: var(--text-sub);
+  letter-spacing: 0.02em;
+}
+
+.notes-label {
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  font-size: 0.72rem;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  color: var(--note-label);
+  background: var(--note-bg);
+  padding: 0 7px;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   REDUCED MOTION
+──────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
