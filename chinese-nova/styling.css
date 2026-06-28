@@ -2,6 +2,7 @@
    Nova vocab card · "Inkstone"
    Warm paper ground, ink text, muted earth accents.
    Variant A — left-aligned, example walled off from meaning.
+   Fixed-px sizing (no vw) for consistent AnkiMobile rendering.
    ============================================================ */
 
 /* --- Palette: light (default) --- */
@@ -56,6 +57,7 @@
   background: var(--bg);
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "PingFang SC", "Noto Sans SC", "Heiti SC", sans-serif;
+  font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   margin: 0;
@@ -69,20 +71,20 @@
   text-align: left;
 }
 
+.vis-hidden { display: none !important; }
+
 /* --- Front --- */
-.front {
-  margin-top: 6px;
-}
+.front { margin-top: 6px; }
 
 /* --- Shared type --- */
 .expr {
-  font-size: clamp(26px, 5.2vw, 32px);
+  font-size: 32px;
   font-weight: 450;
   color: var(--ink);
 }
 
 .hint {
-  font-size: clamp(13px, 2.6vw, 16px);
+  font-size: 16px;
   color: var(--muted);
   margin-left: 0.15em;
 }
@@ -96,20 +98,19 @@
 }
 
 .rdg {
-  font-size: clamp(14px, 3vw, 17px);
+  font-size: 17px;
   color: var(--slate);
   margin: 3px 0 16px;
 }
 
 /* --- Example zone --- */
-.zsent {
-  margin-bottom: 14px;
-}
+.zsent { margin-bottom: 14px; }
 
 .sent {
-  font-size: clamp(17px, 3.6vw, 20px);
+  font-size: 20px;
   line-height: 1.55;
   color: var(--ink);
+  overflow-wrap: anywhere;
 }
 
 .pv {
@@ -138,9 +139,7 @@
   margin-bottom: 13px;
 }
 
-.sec-d {
-  border-left-color: var(--ochre);
-}
+.sec-d { border-left-color: var(--ochre); }
 
 .sec-n {
   border-left-color: var(--sage);
@@ -149,16 +148,17 @@
 }
 
 .lab {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.11em;
   color: var(--label);
   margin-bottom: 4px;
 }
 
 .body {
-  font-size: clamp(14px, 3vw, 16px);
+  font-size: 16px;
   line-height: 1.55;
   color: var(--soft);
+  overflow-wrap: anywhere;
 }
 
 /* --- Tags --- */
@@ -170,9 +170,7 @@
   color: var(--label);
 }
 
-.tags span {
-  margin-right: 9px;
-}
+.tags span { margin-right: 9px; }
 
 /* --- Dictionary icons --- */
 .dicts {
@@ -196,4 +194,11 @@ a {
   color: inherit;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* --- Narrow phones (e.g. 1st-gen iPhone SE, 320px) --- */
+@media (max-width: 360px) {
+  .card-container { padding: 16px 14px 20px; }
+  .expr { font-size: 28px; }
+  .sent { font-size: 19px; }
 }
