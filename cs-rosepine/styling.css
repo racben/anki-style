@@ -1,0 +1,121 @@
+/* --- Global Theme & Variables (Rosé Pine) --- */
+.card {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Heiti SC", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Light Mode Colors (Rosé Pine Dawn) */
+:root {
+  --bg-color: #faf4ed;       /* Dawn Base */
+  --text-color: #575279;     /* Dawn Text */
+  --accent-pink: #d7827e;    /* Dawn Rose */
+  --accent-lavender: #907aa9;/* Dawn Iris */
+  --title-color: #b4637a;    /* Dawn Love */
+  --text-muted: #797593;     /* Dawn Subtle */
+  --border-color: #f2e9e1;   /* Dawn Overlay */
+  --notes-bg: #fffaf3;       /* Dawn Surface */
+}
+
+/* Native Dark Mode Overrides (Rosé Pine Main) */
+.nightMode, :root[data-theme="dark"] {
+  --bg-color: #191724;       /* Base */
+  --text-color: #e0def4;     /* Text */
+  --accent-pink: #ebbcba;    /* Rose */
+  --accent-lavender: #c4a7e7;/* Iris */
+  --title-color: #eb6f92;    /* Love */
+  --text-muted: #908caa;     /* Subtle */
+  --border-color: #26233a;   /* Overlay */
+  --notes-bg: #1f1d2e;       /* Surface */
+}
+
+/* --- Layout Container --- */
+.card-container {
+  max-width: 480px; 
+  margin: 0 auto;
+  padding: 20px 16px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* --- Front Styles --- */
+.sentence-display {
+  font-size: 1.45rem; 
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--text-color);
+  text-align: justify;
+}
+
+.context-faded {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+.divider {
+  border: none;
+  height: 2px;
+  /* Beautiful gradient using Rosé Pine's Rose to Iris */
+  background: linear-gradient(90deg, var(--accent-pink) 0%, var(--accent-lavender) 100%);
+  margin: 18px 0;
+  border-radius: 2px;
+}
+
+/* --- Back Styles --- */
+.expression-target {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--title-color);
+  margin-bottom: 4px;
+}
+
+.reading-box {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  background-color: var(--accent-lavender);
+  /* Uses the background color for the text to ensure perfect contrast in both modes */
+  color: var(--bg-color); 
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  margin-top: 16px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 2px;
+}
+
+.title-notes {
+  color: var(--accent-lavender);
+}
+
+.explanation-content {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  padding: 4px 2px;
+}
+
+.notes-content {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--notes-bg);
+  padding: 10px 12px;
+  border-radius: 8px;
+  border-left: 3px solid var(--accent-lavender);
+  margin-top: 6px;
+}
