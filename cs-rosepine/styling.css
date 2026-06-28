@@ -1,3 +1,8 @@
+Here is the updated CSS. I have swapped the dark mode variables to **Rosé Pine Moon**, which gives it a slightly softer, duskier background compared to the high-contrast main theme. I also bumped the `font-size` for the Definition field from `1rem` to `1.15rem` to make it noticeably larger and easier to read at a glance.
+
+Replace your current **Styling** section with this updated code:
+
+```css
 /* --- Global Theme & Variables (Rosé Pine) --- */
 .card {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Heiti SC", sans-serif;
@@ -20,16 +25,16 @@
   --notes-bg: #fffaf3;       /* Dawn Surface */
 }
 
-/* Native Dark Mode Overrides (Rosé Pine Main) */
+/* Native Dark Mode Overrides (Rosé Pine Moon) */
 .nightMode, :root[data-theme="dark"] {
-  --bg-color: #191724;       /* Base */
-  --text-color: #e0def4;     /* Text */
-  --accent-pink: #ebbcba;    /* Rose */
-  --accent-lavender: #c4a7e7;/* Iris */
-  --title-color: #eb6f92;    /* Love */
-  --text-muted: #908caa;     /* Subtle */
-  --border-color: #26233a;   /* Overlay */
-  --notes-bg: #1f1d2e;       /* Surface */
+  --bg-color: #232136;       /* Moon Base */
+  --text-color: #e0def4;     /* Moon Text */
+  --accent-pink: #ea9a97;    /* Moon Rose */
+  --accent-lavender: #c4a7e7;/* Moon Iris */
+  --title-color: #eb6f92;    /* Moon Love */
+  --text-muted: #908caa;     /* Moon Subtle */
+  --border-color: #393552;   /* Moon Overlay */
+  --notes-bg: #2a273f;       /* Moon Surface */
 }
 
 /* --- Layout Container --- */
@@ -60,7 +65,6 @@
 .divider {
   border: none;
   height: 2px;
-  /* Beautiful gradient using Rosé Pine's Rose to Iris */
   background: linear-gradient(90deg, var(--accent-pink) 0%, var(--accent-lavender) 100%);
   margin: 18px 0;
   border-radius: 2px;
@@ -80,7 +84,6 @@
   font-weight: 600;
   padding: 3px 10px;
   background-color: var(--accent-lavender);
-  /* Uses the background color for the text to ensure perfect contrast in both modes */
   color: var(--bg-color); 
   border-radius: 12px;
   margin-bottom: 20px;
@@ -103,7 +106,7 @@
 }
 
 .explanation-content {
-  font-size: 1rem;
+  font-size: 1.15rem; /* Increased size for readability */
   line-height: 1.5;
   color: var(--text-color);
   padding: 4px 2px;
@@ -119,3 +122,5 @@
   border-left: 3px solid var(--accent-lavender);
   margin-top: 6px;
 }
+
+```
