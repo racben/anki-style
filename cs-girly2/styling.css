@@ -57,7 +57,12 @@
 .context-faded {
   font-size: 1.25rem;
   color: var(--text-muted);
-  opacity: 0.85;
+}
+
+/* Pivot (target word) highlight, shared by front & back */
+.pv {
+  color: var(--title-color);
+  font-weight: 700;
 }
 
 .divider {
@@ -127,4 +132,25 @@
   border-radius: 8px;
   border-left: 3px solid var(--accent-lavender);
   margin-top: 6px;
+}
+
+/* --- Tags --- */
+.tags {
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tags span {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background-color: var(--notes-bg);
+  padding: 2px 9px;
+  border-radius: 10px;
+}
+
+.vis-hidden {
+  display: none;
 }

@@ -1,5 +1,16 @@
 <div class="card-container">
-  <div class="sentence-display">
-    {{Sentence}}
-  </div>
+  <div class="sentence-display" id="sentMount">{{Sentence}}</div>
+  <span id="exprData" class="vis-hidden">{{Expression}}</span>
 </div>
+
+<script>
+(function () {
+  var e = document.getElementById('exprData');
+  var expr = e ? e.textContent.trim() : '';
+  var mount = document.getElementById('sentMount');
+  if (mount && expr && !mount.querySelector('.pv')) {
+    var esc = expr.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    mount.innerHTML = mount.innerHTML.replace(new RegExp(esc, 'g'), '<span class="pv">$&</span>');
+  }
+})();
+</script>

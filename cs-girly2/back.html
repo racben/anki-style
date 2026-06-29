@@ -1,5 +1,5 @@
 <div class="card-container">
-  <div class="sentence-display context-faded">
+  <div class="sentence-display context-faded" id="sentMount">
     {{Sentence}}
   </div>
 
@@ -26,4 +26,30 @@
     {{Notes}}
   </div>
   {{/Notes}}
+
+  {{#Tags}}<div class="tags" id="tagsMount">{{Tags}}</div>{{/Tags}}
+
+  <span id="exprData" class="vis-hidden">{{Expression}}</span>
 </div>
+
+<script>
+(function () {
+  var e = document.getElementById('exprData');
+  var expr = e ? e.textContent.trim() : '';
+  var mount = document.getElementById('sentMount');
+  if (mount && expr && !mount.querySelector('.pv')) {
+    var esc = expr.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    mount.innerHTML = mount.innerHTML.replace(new RegExp(esc, 'g'), '<span class="pv">$&</span>');
+  }
+
+  var tg = document.getElementById('tagsMount');
+  if (tg && !tg.dataset.done) {
+    var raw = tg.textContent.trim();
+    if (!raw) { tg.style.display = 'none'; }
+    else {
+      tg.innerHTML = raw.split(/\s+/).map(function (t) { return '<span>＃' + t + '</span>'; }).join('');
+    }
+    tg.dataset.done = '1';
+  }
+})();
+</script>
