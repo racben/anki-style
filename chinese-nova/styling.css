@@ -66,7 +66,7 @@
   padding-bottom: 42px;
 }
 .q {
-  font-size: 2.2rem;
+  font-size: 1.85rem;
   font-weight: 700;
   letter-spacing: 1px;
   color: var(--text-color);
@@ -92,7 +92,7 @@
 .rdg {
   display: inline-block;
   margin: 9px 0 2px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
   padding: 3px 11px;
   background: var(--pill-bg);
@@ -158,8 +158,8 @@
   color: var(--iris);
 }
 .body {
-  font-size: 0.97rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.5;
   color: var(--text-color);
 }
 
@@ -168,8 +168,9 @@
   color: var(--text-muted);
 }
 .sent {
-  font-size: 1.05rem;
-  line-height: 1.65;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  font-weight: 500;
 }
 .pv {
   color: var(--love);
@@ -188,7 +189,7 @@
   padding: 10px 12px;
   border-radius: 8px;
   border-left: 3px solid var(--iris);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
 }
 
 /* --- Tags --- */
@@ -215,7 +216,7 @@
 /* --- Narrow screens (e.g. iPhone SE) --- */
 @media (max-width: 360px) {
   .card-container { padding: 16px 12px; }
-  .q { font-size: 1.95rem; }
+  .q { font-size: 1.6rem; }
   .expr { font-size: 1.6rem; }
-  .sent { font-size: 1rem; }
+  .sent { font-size: 1.15rem; }
 }
