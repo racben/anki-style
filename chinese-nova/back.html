@@ -1,19 +1,20 @@
 <div class="card-container">
-  <div class="ans">
-    <span class="expr">{{Expression}}</span>
-    <span class="dicts">
-      <a class="dictlink db m" data-dict="mdbg" data-scope="word">M</a>
-      <a class="dictlink db p" data-dict="pleco" data-scope="word">P</a>
-    </span>
+  <div class="head">
+    <div class="ans">
+      <span class="expr">{{Expression}}</span>
+      <span class="dicts">
+        <a class="dictlink db m" data-dict="mdbg" data-scope="word">M</a>
+        <a class="dictlink db p" data-dict="pleco" data-scope="word">P</a>
+      </span>
+    </div>
+    {{#Reading}}<div class="rdg">{{Reading}}</div>{{/Reading}}
   </div>
-
-  {{#Reading}}<div class="rdg">{{Reading}}</div>{{/Reading}}
-
-  <div class="zdiv"></div>
 
   {{#Definition}}
   <div class="sec sec-d"><div class="lab">释义</div><div class="body">{{Definition}}</div></div>
   {{/Definition}}
+
+  <div class="zdiv"></div>
 
   {{#Sentence}}
   <div class="sec sec-e">

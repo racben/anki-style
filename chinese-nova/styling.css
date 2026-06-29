@@ -69,7 +69,7 @@
   font-size: 1.85rem;
   font-weight: 700;
   letter-spacing: 1px;
-  color: var(--text-color);
+  color: var(--love);
 }
 .hint {
   margin-top: 14px;
@@ -78,9 +78,14 @@
 }
 
 /* --- Headword --- */
+.head {
+  text-align: center;
+  margin-bottom: 4px;
+}
 .ans {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   flex-wrap: wrap;
 }
@@ -163,9 +168,14 @@
   color: var(--text-color);
 }
 
+/* --- Definition --- */
+.sec-d .body {
+  font-size: 1.1rem;
+}
+
 /* --- Example sentence --- */
 .sec-e .body {
-  color: var(--text-muted);
+  color: var(--text-subtle);
 }
 .sent {
   font-size: 1.25rem;
