@@ -2,26 +2,31 @@
   <div class="ans">
     <span class="expr">{{Expression}}</span>
     <span class="dicts">
-      <a class="dictlink" data-dict="mdbg" data-scope="word"><img class="ic" src="mdbg.png" alt="MDBG"></a>
-      <a class="dictlink" data-dict="pleco" data-scope="word"><img class="ic" src="pleco.png" alt="Pleco"></a>
+      <a class="dictlink db m" data-dict="mdbg" data-scope="word">M</a>
+      <a class="dictlink db p" data-dict="pleco" data-scope="word">P</a>
     </span>
   </div>
 
   {{#Reading}}<div class="rdg">{{Reading}}</div>{{/Reading}}
-
-  <div class="zsent">
-    <span class="sent" id="sentMount">{{Sentence}}</span><span class="dicts">
-      <a class="dictlink" data-dict="mdbg" data-scope="sent"><img class="ic" src="mdbg.png" alt="MDBG"></a>
-      <a class="dictlink" data-dict="pleco" data-scope="sent"><img class="ic" src="pleco.png" alt="Pleco"></a>
-    </span>
-    {{#Source}}<div class="src">{{Source}}</div>{{/Source}}
-  </div>
 
   <div class="zdiv"></div>
 
   {{#Definition}}
   <div class="sec sec-d"><div class="lab">释义</div><div class="body">{{Definition}}</div></div>
   {{/Definition}}
+
+  {{#Sentence}}
+  <div class="sec sec-e">
+    <div class="lab">例句</div>
+    <div class="body">
+      <span class="sent" id="sentMount">{{Sentence}}</span><span class="dicts dicts-sent">
+        <a class="dictlink db m" data-dict="mdbg" data-scope="sent">M</a>
+        <a class="dictlink db p" data-dict="pleco" data-scope="sent">P</a>
+      </span>
+      {{#Source}}<div class="src">{{Source}}</div>{{/Source}}
+    </div>
+  </div>
+  {{/Sentence}}
 
   {{#Notes}}
   <div class="sec sec-n"><div class="lab">笔记</div><div class="body">{{Notes}}</div></div>
