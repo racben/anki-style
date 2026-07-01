@@ -173,6 +173,19 @@
   font-size: 1.1rem;
 }
 
+/* --- Register marker (口 / 书), Pleco-style gray tag --- */
+.reg {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--overlay);
+  border-radius: 6px;
+  padding: 1px 7px;
+  margin-right: 8px;
+  vertical-align: 0.12em;
+}
+
 /* --- Example sentence --- */
 .sec-e .body {
   color: var(--text-subtle);
