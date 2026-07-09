@@ -11,10 +11,9 @@
   var expr = (exprEl.textContent || "").trim();
   if (!expr) return;
 
-  var html = sentenceMount.innerHTML;
-  var escaped = expr.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  var re = new RegExp(escaped, 'g');
-
-  sentenceMount.innerHTML = html.replace(re, '<b>$&</b>');
+  if (!sentenceMount.querySelector('.pv')) {
+    var escaped = expr.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    sentenceMount.innerHTML = sentenceMount.innerHTML.replace(new RegExp(escaped, 'g'), '<span class="pv">$&</span>');
+  }
 })();
 </script>
